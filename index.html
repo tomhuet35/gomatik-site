@@ -1,5 +1,19 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F7FF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0D24" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
 <title>GOMATIK</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="GOMATIK met à disposition des distributeurs automatiques de snacks, de boissons et des machines à café pour les lieux d'attente, de sport, de travail et d'hébergement.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"GOMATIK","description":"Mise à disposition de distributeurs automatiques de snacks, de boissons et de machines à café.","url":"https://www.gomatik.fr","email":"gomatik@outlook.fr","telephone":"+33648034612","address":{"@type":"PostalAddress","streetAddress":"28 lieu-dit Audry","postalCode":"35190","addressLocality":"Longaulnay","addressCountry":"FR"},"founder":[{"@type":"Person","name":"Tom HUET"},{"@type":"Person","name":"Envel LE BERRE"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +37,7 @@
   --blue:#5770FF; --sky:#84D8FF; --violet:#7D71FF; --navy:#060818; --on-navy:#F2F5FF; --sky-soft:#13284A; color-scheme:dark}
 
 *{box-sizing:border-box}
+html{overflow-x:hidden}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
 img{max-width:100%;display:block}
@@ -97,7 +112,8 @@ header.top.scrolled{border-bottom-color:var(--line)}
 @media (max-width:860px){.hero-grid{grid-template-columns:1fr}.stage{max-width:520px}}
 
 /* Ticker */
-.ticker{background:var(--blue);color:#fff;overflow:hidden;padding-block:18px;transform:rotate(-1.2deg);margin:10px -10px 0;position:relative;z-index:2}
+.ticker-wrap{overflow:hidden;padding-block:14px;margin-top:-4px}
+.ticker{background:var(--blue);color:#fff;overflow:hidden;padding-block:18px;transform:rotate(-1.2deg);margin:0 -12px;position:relative;z-index:2}
 .ticker-track{display:flex;gap:40px;width:max-content;animation:tick 32s linear infinite}
 .ticker span{font-family:var(--f-display);font-weight:600;font-size:clamp(1rem,2vw,1.35rem);display:inline-flex;align-items:center;gap:40px;white-space:nowrap}
 .ticker span::after{content:"";width:16px;height:16px;border-radius:50%;background:var(--sky)}
@@ -272,6 +288,8 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px;margin-top:20px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 
+</head>
+<body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="cog" viewBox="0 0 400 400"><path fill="currentColor" fill-rule="evenodd" d="M193.7 382.1 198.4 381.0 202.2 379.5 216.5 369.6 225.4 364.1 233.7 359.9 242.1 356.3 261.2 349.3 272.4 346.4 285.8 344.1 297.5 343.0 301.4 342.0 305.5 340.4 309.9 337.6 312.5 335.3 317.1 329.3 319.6 323.9 320.9 316.9 321.8 303.6 323.7 292.8 326.2 282.6 334.0 260.4 336.9 253.1 341.2 244.8 346.8 236.2 353.2 228.6 357.4 222.2 359.6 216.2 360.6 209.8 360.2 203.5 359.0 198.7 356.3 193.0 349.6 181.9 344.6 171.5 340.4 160.9 336.6 147.2 334.0 133.9 333.1 124.7 332.8 112.3 333.6 99.6 333.5 94.2 331.8 87.2 329.1 81.8 324.2 76.1 316.7 71.3 308.0 68.7 302.0 67.5 291.5 64.2 280.7 59.9 265.8 52.5 255.0 46.2 245.2 39.9 237.9 34.1 228.4 25.3 223.5 21.4 215.6 18.2 209.2 17.2 205.1 17.4 201.6 18.1 196.2 20.1 184.7 28.2 175.2 34.3 167.3 38.6 161.2 41.4 140.3 49.1 128.2 52.3 114.8 54.6 102.5 55.7 99.0 56.4 91.7 59.5 89.4 60.9 85.6 64.4 81.7 69.4 78.8 76.4 75.5 104.4 73.0 114.8 67.2 132.0 62.6 143.4 57.7 153.3 52.3 162.1 44.0 172.9 41.8 176.5 40.5 179.7 39.7 184.4 39.7 196.5 40.6 201.3 50.5 218.4 55.0 228.0 59.7 240.4 62.9 251.8 65.3 264.2 66.3 275.0 66.4 286.1 65.7 303.9 67.8 311.8 69.3 315.0 71.9 318.8 76.4 323.3 78.9 325.2 82.1 326.9 107.2 334.4 121.5 340.5 132.6 346.2 149.9 357.0 162.2 366.6 171.2 374.7 177.8 379.4 184.7 381.8 193.7 382.1ZM235.3 343.3 230.8 343.6 225.1 343.1 219.7 341.8 212.7 338.6 201.9 331.5 195.9 329.5 192.1 328.9 186.7 329.0 180.6 330.4 166.6 336.9 159.0 338.4 153.6 338.5 148.2 337.8 143.4 336.5 138.2 334.1 132.5 330.3 127.6 325.5 122.6 317.9 119.8 310.3 117.1 294.0 113.0 285.8 109.7 282.0 105.3 278.6 102.5 276.9 94.4 273.4 90.2 270.9 86.6 267.8 82.1 262.9 79.3 258.6 75.7 249.6 73.9 240.4 73.4 235.3 73.6 231.5 74.9 224.5 76.1 221.1 79.3 214.8 85.9 205.9 88.0 202.2 90.0 195.9 90.5 191.4 90.2 185.4 89.2 180.9 86.4 174.9 80.6 165.1 79.1 161.2 77.7 155.3 77.3 150.8 77.6 143.4 79.3 136.5 80.8 132.3 82.8 128.4 87.2 122.2 95.2 115.2 102.5 111.6 114.3 107.9 117.7 106.0 121.5 102.9 124.4 99.9 127.7 94.8 129.3 91.0 133.0 78.9 135.3 74.2 137.5 71.0 141.2 66.6 143.8 64.2 150.1 60.0 156.2 57.5 165.1 55.8 170.5 55.8 174.9 56.4 180.4 58.0 185.7 60.4 197.5 68.1 201.9 69.8 206.0 70.4 211.4 70.5 215.9 69.8 221.6 67.6 231.8 62.5 236.9 61.1 240.7 60.7 246.4 60.6 252.8 61.8 256.9 63.1 262.6 65.9 267.3 69.1 271.1 72.9 274.3 77.2 276.7 81.2 279.7 89.4 281.2 99.9 282.3 104.4 286.4 112.7 289.3 116.1 292.5 118.8 296.3 121.2 305.8 125.3 309.9 128.2 314.7 132.6 318.0 136.8 320.6 140.9 323.7 149.2 325.9 161.6 325.7 167.3 324.8 172.7 321.4 181.6 313.4 192.7 311.2 196.8 309.3 201.9 308.6 207.3 308.9 213.7 311.0 220.7 318.9 234.9 321.1 243.2 321.4 250.5 321.0 256.6 319.1 263.5 317.0 268.6 311.8 276.4 304.2 283.5 297.2 287.1 284.8 290.9 280.4 293.4 275.3 297.8 273.0 300.7 270.1 306.1 266.9 317.2 264.2 323.9 260.6 329.3 256.6 333.6 252.5 336.9 246.7 340.2 243.5 341.5 235.3 343.3Z"/></symbol>
@@ -328,11 +346,13 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px;margin-top:20px}
     </div>
   </section>
 
-  <div class="ticker" aria-hidden="true">
+  <div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
     <div class="ticker-track">
       <span>Lieux d'attente</span><span>Sport et loisirs</span><span>Lieux de travail</span><span>Hébergement et formation</span>
       <span>Lieux d'attente</span><span>Sport et loisirs</span><span>Lieux de travail</span><span>Hébergement et formation</span>
     </div>
+  </div>
   </div>
 
   <section class="block">
@@ -924,3 +944,6 @@ document.getElementById('form').addEventListener('submit',function(e){
   }).then(function(){btn.disabled=false;btn.style.opacity=''});
 });
 </script>
+
+</body>
+</html>
