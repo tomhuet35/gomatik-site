@@ -275,6 +275,32 @@ form .full{grid-column:1/-1}
 .consent a{color:var(--blue)}
 .legal a{color:inherit}
 
+/* Photos en situation */
+.situ{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:16px}
+.situ figure{margin:0;position:relative;border-radius:22px;overflow:hidden;background:var(--sky-soft);min-width:0}
+.situ figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.situ figure:hover img{transform:scale(1.03)}
+.situ .big{grid-row:1/3}
+.situ figcaption{position:absolute;left:14px;bottom:14px;right:14px;display:flex;flex-direction:column;gap:2px;background:rgba(10,13,36,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;padding:12px 16px;border-radius:14px;max-width:max-content}
+.situ figcaption b{font-family:var(--f-display);font-weight:600;font-size:1rem}
+.situ figcaption span{font-size:.88rem;color:#C8CFF0}
+.situ .big{aspect-ratio:auto;min-height:100%}
+.situ figure:not(.big){aspect-ratio:16/9}
+@media (max-width:860px){.situ{grid-template-columns:1fr;gap:12px}.situ .big{grid-row:auto;aspect-ratio:16/10}.situ figcaption{left:10px;bottom:10px;right:auto;padding:8px 12px;border-radius:11px}.situ figcaption b{font-size:.9rem}.situ figcaption span{font-size:.78rem}}
+.banner{margin:0 0 clamp(8px,2vw,16px);border-radius:26px;overflow:hidden;position:relative;aspect-ratio:21/8;background:var(--sky-soft)}
+.banner img{width:100%;height:100%;object-fit:cover;object-position:70% 45%;display:block}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,13,36,.55),rgba(10,13,36,0) 55%)}
+.banner .tag{text-shadow:0 1px 12px rgba(10,13,36,.6);position:absolute;left:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,28px);z-index:1;color:#fff;display:flex;flex-direction:column;gap:4px;max-width:30ch}
+.banner .tag b{font-family:var(--f-display);font-weight:600;font-size:clamp(1rem,2.2vw,1.5rem);line-height:1.15}
+.banner .tag span{font-size:.92rem;color:#DDE3FF}
+@media (max-width:640px){.banner{aspect-ratio:4/3}.banner .tag b{font-size:1.05rem}.banner .tag span{font-size:.82rem}.banner img{object-position:72% 50%}.banner::after{background:linear-gradient(0deg,rgba(10,13,36,.7),rgba(10,13,36,0) 60%)}}
+.pay{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-top:clamp(28px,4vw,44px)}
+.pay figure{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:16/11;background:var(--sky-soft)}
+.pay figure img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;display:block}
+.pay .txt{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pay .txt p{color:var(--muted);max-width:52ch}
+@media (max-width:760px){.pay{grid-template-columns:1fr}}
+
 /* Footer */
 footer{border-top:1px solid var(--line);padding-block:48px 40px;margin-top:20px}
 .foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
@@ -409,6 +435,21 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px;margin-top:20px}
     </a>
   </section>
 
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">En situation</span>
+        <h2>Une pause qui s'intègre à votre lieu</h2>
+        <p class="lead">Nos machines aux couleurs GOMATIK trouvent leur place dans une laverie, un hall ou une salle de pause, sans travaux ni encombrement.</p>
+      </div>
+      <div class="situ">
+        <figure class="big"><img src="photo-laverie-1600.webp" srcset="photo-laverie-800.webp 800w, photo-laverie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 680px" alt="Distributeur de boissons chaudes GOMATIK installé dans une laverie automatique, à côté des machines à laver" width="1672" height="941" loading="lazy"><figcaption><b>Laverie automatique</b><span>Un café chaud le temps d'un cycle</span></figcaption></figure>
+        <figure><img src="photo-cafe-1600.webp" srcset="photo-cafe-800.webp 800w, photo-cafe-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 500px" alt="Gros plan sur une machine à café GOMATIK qui remplit une tasse d'expresso" width="1672" height="941" loading="lazy"><figcaption><b>Café fraîchement moulu</b><span>Expresso, cappuccino, chocolat</span></figcaption></figure>
+        <figure><img src="photo-paiement-1600.webp" srcset="photo-paiement-800.webp 800w, photo-paiement-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 500px" alt="Paiement sans contact par carte bancaire sur un distributeur de snacks GOMATIK" width="1672" height="941" loading="lazy"><figcaption><b>Paiement en un geste</b><span>Choisir, payer, se servir</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="block band">
     <svg class="cog-bg" aria-hidden="true"><use href="#cog"/></svg>
     <div class="wrap">
@@ -484,6 +525,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px;margin-top:20px}
       <h1>Votre machine, <span class="hl">notre affaire</span></h1>
       <p class="lead">Nous mettons l'automate à disposition et gérons tout ce qui le fait fonctionner. Vous gardez un espace de pause toujours prêt, sans vous en occuper.</p>
     </div>
+    <figure class="banner"><img src="photo-cafe-1600.webp" srcset="photo-cafe-800.webp 800w, photo-cafe-1600.webp 1600w" sizes="(max-width: 1220px) 100vw, 1180px" alt="Machine à café GOMATIK servant un expresso dans un espace de pause lumineux" width="1672" height="941" loading="lazy"><figcaption class="tag"><b>Des boissons de qualité, servies à la tasse</b><span>Installées, réapprovisionnées et entretenues par GOMATIK</span></figcaption></figure>
 
     <div class="offer">
       <div class="pic"><svg class="frame" aria-hidden="true"><path/></svg><img class="i-snack" src="g-snack.webp" alt="Distributeur de snacks et boissons" loading="lazy" width="568" height="991"></div>
@@ -558,6 +600,14 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px;margin-top:20px}
         <div class="inc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg></div><h3>Réapprovisionnement</h3><p>Passages réguliers pour garder la machine pleine.</p></div>
         <div class="inc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 6.2l2.1 2.1M17.7 15.7l2.1 2.1M3 12h3M18 12h3M4.2 17.8l2.1-2.1M17.7 8.3l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div><h3>Entretien</h3><p>Nettoyage et vérifications à chaque passage.</p></div>
         <div class="inc"><div class="ico"><svg viewBox="0 0 24 24"><use href="#phone"/></svg></div><h3>Dépannage</h3><p>Un interlocuteur direct en cas de panne.</p></div>
+      </div>
+      <div class="pay">
+        <figure><img src="photo-paiement-1600.webp" srcset="photo-paiement-800.webp 800w, photo-paiement-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 560px" alt="Client qui paie par carte sans contact sur un distributeur GOMATIK" width="1672" height="941" loading="lazy"></figure>
+        <div class="txt">
+          <span class="eyebrow">Côté utilisateurs</span>
+          <h2>Simple pour ceux qui s'en servent</h2>
+          <p>Un écran clair, les prix affichés et un paiement rapide : vos clients, adhérents ou salariés se servent seuls, à toute heure, sans vous solliciter.</p>
+        </div>
       </div>
     </div>
   </section>
